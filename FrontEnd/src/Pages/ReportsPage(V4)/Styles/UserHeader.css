@@ -1,0 +1,60 @@
+/* User Info Container */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* User Avatar */
+.user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* User Details */
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.user-name-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: #1d1d1f;
+}
+
+.is-in-text {
+  font-size: 14px;
+  color: #86868b;
+}
+
+.report-date {
+  font-size: 13px;
+  color: #86868b;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .user-avatar {
+    width: 52px;
+    height: 52px;
+    font-size: 18px;
+  }
+}
