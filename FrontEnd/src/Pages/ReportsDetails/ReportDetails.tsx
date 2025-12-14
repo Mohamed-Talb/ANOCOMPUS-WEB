@@ -1,9 +1,23 @@
 import React from "react";
+import "./Styles/styles.css";
 
-import ReportCard from "../../reports/components/ReportCard";
-import RelatedReports from "../../reports/components/RelatedReports";
-import CommentsSection from "../../reports/components/CommentsSection";
-import "../Styles/style.css";
+
+// import "./Styles/index.css";
+
+// import "./Styles/RelatedReports.css"
+// import "./Styles/ReportCard.css"
+// import "./Styles/Base.css"
+// import "./Styles/Attachments.css"
+// import "./Styles/Conversation.css"
+// import "./Styles/Footer.css"
+// import "./Styles/layout.css"
+
+import CommentsSection from "./Components/Convirsation";
+import MainReport from "./Components/MainReport";
+import RelatedSession from "./Components/RelatedReports";
+
+
+
 
 export type Person = {
   type: string;
@@ -12,35 +26,43 @@ export type Person = {
 };
 
 export type Attachment = {
-  name: string;      // File name
-  url: string;       // File URL or base64 string
-  type: string;      // MIME t
-  // ype
+  name: string;
+  url: string;
+  type: string;
 };
 
 export type Report = {
   ReportFrom: Person;
   ReportTo: Person;
-
   Title: string;
   Description: string;
   Location: string;
-
   Priority: string;
-  Status: string;      // <-- Added Status
+  Status: string;
   Categorie: string;
   Date: string;
-
-  Attachments: Attachment[];  
+  Attachments: Attachment[];
   Related: Report[];
 };
 
-// Example Persons
-const person1: Person = { type: "staff", Firstname: "Alice", LastName: "Johnson" };
-const person2: Person = { type: "student", Firstname: "Bob", LastName: "Smith" };
-const person3: Person = { type: "staff", Firstname: "Charlie", LastName: "Brown" };
+const person1: Person = {
+  type: "staff",
+  Firstname: "Alice",
+  LastName: "Johnson",
+};
 
-// Example Reports
+const person2: Person = {
+  type: "student",
+  Firstname: "Bob",
+  LastName: "Smith",
+};
+
+const person3: Person = {
+  type: "staff",
+  Firstname: "Charlie",
+  LastName: "Brown",
+};
+
 const report1: Report = {
   ReportFrom: person1,
   ReportTo: person2,
@@ -48,12 +70,12 @@ const report1: Report = {
   Description: "Monthly sales report shows increase in revenue.",
   Location: "New York Office",
   Priority: "High",
-  Status: "Pending",     // <-- Added Status
+  Status: "Pending",
   Categorie: "Sales",
   Date: "2025-11-30",
   Attachments: [
     { name: "sales-graph.png", url: "../public/download.png", type: "image/png" },
-    { name: "summary.pdf", url: "/home/sig/UM6P-PROJECT-STAFF-ZOUBIR-PAGES/public/Python Programming.pdf", type: "application/pdf" },
+    { name: "summary.pdf", url: "../public/summary.pdf", type: "application/pdf" },
     { name: "sales-graph.png", url: "../public/download.png", type: "image/png" },
     { name: "sales-graph.png", url: "../public/download.png", type: "image/png" },
   ],
@@ -67,7 +89,7 @@ const report2: Report = {
   Description: "Client feedback on new product launch.",
   Location: "London Branch",
   Priority: "Medium",
-  Status: "Completed",   // <-- Added Status
+  Status: "Completed",
   Categorie: "Client Feedback",
   Date: "2025-11-29",
   Attachments: [],
@@ -81,31 +103,34 @@ const report3: Report = {
   Description: "Weekly IT system maintenance summary.",
   Location: "Remote",
   Priority: "Low",
-  Status: "In Progress", // <-- Added Status
+  Status: "In Progress",
   Categorie: "IT",
   Date: "2025-11-28",
   Attachments: [
     { name: "sales-graph.png", url: "../public/download.png", type: "image/png" },
-    { name: "summary.pdf", url: "/home/sig/UM6P-PROJECT-STAFF-ZOUBIR-PAGES/public/Python Programming.pdf", type: "application/pdf" },
+    { name: "summary.pdf", url: "../public/summary.pdf", type: "application/pdf" },
     { name: "sales-graph.png", url: "../public/download.png", type: "image/png" },
     { name: "sales-graph.png", url: "../public/download.png", type: "image/png" },
   ],
   Related: [report1, report2],
 };
 
+// ===============================================
+// MAIN PAGE COMPONENT
+// ===============================================
 
-
-
-// Example Reports
-export default function ReportPage({ userRole }: { userRole: string }) 
+export default function ReportPage() 
 {
   const report: Report = report3;
 
   return (
     <div className="page-container">
-      <ReportCard Report={report} />
-      {report.ReportTo.type === "staff" && <RelatedReports report={report} />}
-      {report.ReportTo.type === "zoubir" && <CommentsSection Report={report} />}
+      {/* Main Report */}
+      <MainReport report={report} />
+      {/* Related Reports Session (if recipient is staff) */}
+      {report.ReportTo.type === "staff" && (<RelatedSession reports={report.Related} />)}
+      {/* Comments Section (if recipient is Zoubir) */}
+      {report.ReportTo.type === "zoubir" && <CommentsSection report={report} />}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-export function getFileIcon(type: string): string 
+export default function getFileIcon(type: string): string 
 {
   if (type.startsWith("image/")) return "image";
   if (type === "application/pdf") return "pdf";

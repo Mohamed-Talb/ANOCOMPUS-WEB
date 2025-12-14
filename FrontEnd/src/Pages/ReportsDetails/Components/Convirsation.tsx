@@ -1,16 +1,16 @@
-import React from "react";
-import "../styles/CommentsSection.css";
-import type { Report } from "./ReportPage";
+import type { Report } from "../ReportDetails";
 
-export default function CommentsSection({Report}: {Report:Report}) {
+export default function CommentsSection({ report }: { report: Report }) {
   return (
     <div className="comments-container">
-      <h3 className="chat-title">Chat Room {Report.ReportFrom.Firstname} & {Report.ReportTo.Firstname}</h3>
+      <h3 className="chat-title">
+        Chat Room {report.ReportFrom.Firstname} & {report.ReportTo.Firstname}
+      </h3>
 
       {/* Comment 1 */}
       <div className="comment left">
         <div className="bubble">
-          <p className="author">{Report.ReportTo.Firstname}</p>
+          <p className="author">{report.ReportTo.Firstname}</p>
           I've checked the HVAC system. Cooling seems malfunctioning.
         </div>
       </div>
@@ -18,7 +18,7 @@ export default function CommentsSection({Report}: {Report:Report}) {
       {/* Comment 2 */}
       <div className="comment right">
         <div className="bubble">
-          <p className="author staff">{Report.ReportFrom.Firstname}</p>
+          <p className="author staff">{report.ReportFrom.Firstname}</p>
           Thanks for the quick response. Temperature is going down now.
         </div>
       </div>
@@ -26,7 +26,7 @@ export default function CommentsSection({Report}: {Report:Report}) {
       {/* Comment 3 */}
       <div className="comment left">
         <div className="bubble">
-          <p className="author">{Report.ReportTo.Firstname}</p>
+          <p className="author">{report.ReportTo.Firstname}</p>
           Technician is on site now. Will be resolved soon.
         </div>
       </div>
