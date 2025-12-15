@@ -1,5 +1,6 @@
 import React from "react";
 import "./Styles/styles.css";
+import "./Styles/Darckmode.css";
 
 
 // import "./Styles/index.css";
