@@ -1,8 +1,21 @@
 import React from "react";
-import "./Styles/styles.css";
+
+
+// ReportPage.tsx
+import './Styles/ReportDetails.css';    // Global first
+// MainReport.tsx
+import './Styles/MainReport.css';
+import './Styles/Footer.css';
+// RelatedReports.tsx
+import './Styles/RelatedReport.css';
+// UserHeader.tsx
+import './Styles/UserHeader.css';
+// Attachments.tsx
+import './Styles/Attachments.css';
+// Conversation.tsx
+import './Styles/Conversation.css';
+
 import "./Styles/Darckmode.css";
-
-
 // import "./Styles/index.css";
 
 // import "./Styles/RelatedReports.css"
@@ -45,6 +58,15 @@ export type Report = {
   Attachments: Attachment[];
   Related: Report[];
 };
+
+const zoubir: Person = {
+  type: "zoubir",
+  Firstname: "Zoubir",
+  LastName: "El Amrani",
+};
+
+
+
 
 const person1: Person = {
   type: "staff",
@@ -116,6 +138,23 @@ const report3: Report = {
   Related: [report1, report2],
 };
 
+
+const reportZoubir: Report = {
+  ReportFrom: person1,
+  ReportTo: zoubir, // 👈 important
+  Title: "Disciplinary Report",
+  Description: "Incident report requiring review and comments.",
+  Location: "Campus A",
+  Priority: "High",
+  Status: "Open",
+  Categorie: "Discipline",
+  Date: "2025-12-01",
+  Attachments: [
+    { name: "evidence.png", url: "../public/download.png", type: "image/png" },
+  ],
+  Related: [],
+};
+
 // ===============================================
 // MAIN PAGE COMPONENT
 // ===============================================
@@ -129,9 +168,10 @@ export default function ReportPage()
       {/* Main Report */}
       <MainReport report={report} />
       {/* Related Reports Session (if recipient is staff) */}
-      {report.ReportTo.type === "staff" && (<RelatedSession reports={report.Related} />)}
+      {/* {report.ReportTo.type === "staff" && (<RelatedSession reports={report.Related} />)}*/}
       {/* Comments Section (if recipient is Zoubir) */}
-      {report.ReportTo.type === "zoubir" && <CommentsSection report={report} />}
+      {/*report.ReportTo.type === "zoubir" && <CommentsSection report={report} />} */}
+      <CommentsSection report={reportZoubir} />
     </div>
   );
 }

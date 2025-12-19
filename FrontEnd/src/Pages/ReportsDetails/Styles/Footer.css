@@ -1,30 +1,126 @@
+/* ===============================================
+   FOOTER - TAGS & BUTTONS
+   =============================================== */
+
+/* ---------------------------------------
+   DIVIDER
+---------------------------------------- */
 .divider {
+  border: none;
   border-top: 1px solid #e5e5ea;
-  margin: 12px 0;
+  margin: 20px 0;
 }
 
+/* ---------------------------------------
+   FOOTER
+---------------------------------------- */
 .footer {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-/* Tags */
+/* ---------------------------------------
+   TAGS
+---------------------------------------- */
 .tags {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .tag {
-  padding: 4px 10px;
-  font-size: 12px;
+  padding: 6px 12px;
   border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
-/* Buttons */
+/* Priority Tags */
+.tag.priority-high {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.tag.priority-medium {
+  background: #fed7aa;
+  color: #c2410c;
+}
+
+.tag.priority-low {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* Status Tags */
+.tag.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.tag.status-completed {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.tag.status-in-progress {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+/* Category Tag */
+.tag.category {
+  background: #f3e8ff;
+  color: #6b21a8;
+}
+
+/* ---------------------------------------
+   BUTTONS
+---------------------------------------- */
 .assign-btn,
 .edit-btn {
-  padding: 8px 16px;
-  font-size: 13px;
+  padding: 10px 20px;
+  border: none;
   border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.assign-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.assign-btn:hover {
+  background: #2563eb;
+}
+
+.edit-btn {
+  background: #f3f4f6;
+  color: #1f2937;
+  border: 1px solid #d1d5db;
+}
+
+.edit-btn:hover {
+  background: #e5e7eb;
+}
+
+/* ---------------------------------------
+   RESPONSIVE - MOBILE
+---------------------------------------- */
+@media (max-width: 767px) {
+  .footer {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .assign-btn,
+  .edit-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
 }

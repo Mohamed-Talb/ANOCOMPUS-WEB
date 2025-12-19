@@ -1,3 +1,7 @@
+/* ===============================================
+   ATTACHMENTS - GRID & ITEMS
+   =============================================== */
+
 .attachments-wrapper {
   width: 100%;
 }
@@ -5,17 +9,35 @@
 .attachments-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
+  gap: 8px;
 }
 
 .attachment-item {
-  height: 90px;
   border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   background: #f9fafb;
   border: 1px solid #e5e7eb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  transition: transform 0.2s;
+}
+
+.attachment-item:hover {
+  transform: scale(1.02);
+}
+
+/* ---------------------------------------
+   IMAGE PREVIEW
+---------------------------------------- */
+.attachment-item.image-preview {
+  background: #f5f5f7;
+  border: none;
+  padding: 0;
 }
 
 .attachment-item.image-preview img {
@@ -24,8 +46,60 @@
   object-fit: cover;
 }
 
+/* ---------------------------------------
+   FILE ICON
+---------------------------------------- */
+.attachment-item.file-icon {
+  background: #2c3e50;
+  color: white;
+  gap: 8px;
+}
+
+.attachment-item.file-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.file-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------
+   MORE BUTTON
+---------------------------------------- */
+.attachment-item.more-button {
+  background: #34495e;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.attachment-item.more-button:hover {
+  background: #2c3e50;
+}
+
+/* ---------------------------------------
+   RESPONSIVE - DESKTOP
+---------------------------------------- */
 @media (min-width: 768px) {
+  .attachments-wrapper {
+    flex: 0 0 200px;
+  }
+
+  .attachments-grid {
+    gap: 10px;
+  }
+
   .attachment-item {
-    height: 80px;
+    height: 90px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .attachments-wrapper {
+    flex: 0 0 200px;
   }
 }
