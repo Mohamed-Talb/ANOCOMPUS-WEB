@@ -1,17 +1,7 @@
 import './Mainmenu.css'
-import './DarkMode.css'
-import { LayoutDashboardIcon } from 'lucide-react';
-import { AlertCircleIcon } from 'lucide-react';
-import { ArchiveIcon } from 'lucide-react';
-import { TimerIcon } from 'lucide-react';
-import { BellIcon } from 'lucide-react'
-import { MoonIcon } from 'lucide-react';
-import { SunIcon } from 'lucide-react';
-import { Users } from 'lucide-react';
-import { Megaphone } from 'lucide-react';
-import { Menu, X } from 'lucide-react';
-import { DropdownAvatar } from './DropdownAvatar';
-
+import { LayoutDashboardIcon, AlertCircleIcon, ArchiveIcon, TimerIcon, BellIcon, MoonIcon, SunIcon, Users, Megaphone, Menu, X } from 'lucide-react';
+import { DropdownAvatar } from '../../Pages/Responsable/Dashboard/DropdownAvatar/DropdownAvatar';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 function mainMenu() {
@@ -44,26 +34,25 @@ function mainMenu() {
 
             <div className="navigation-el desktop-nav">
                 <div className='content-menu-el'>
-                    <div className='content-1'>
+                    <Link to="/dashboard" className='content-1'>
                         <LayoutDashboardIcon className="LayoutDashboardIcon" />
                         <p>Dashboard</p>
-                    </div>
+                    </Link>
 
-                    <div className='content-2'>
+                    <Link to="/reports" className='content-2'>
                         <AlertCircleIcon className='AlertCircleIcon' />
                         <p>Reports</p>
-                    </div>
+                    </Link>
 
-                    <div className='content-2'>
+                    <Link to="/archive" className='content-2'>
                         <ArchiveIcon className='ArchiveIcon' />
                         <p>Archive</p>
-                    </div>
+                    </Link>
 
                     <div className='content-3'>
                         <TimerIcon className='TimerIcon' />
                         <p>Schedule</p>
                     </div>
-
 
                     <div className='content-5'>
                         <Megaphone className='MegaphoneIcon' />
@@ -117,20 +106,20 @@ function mainMenu() {
                 <div className="mobile-nav-overlay" onClick={closeMobileMenu}>
                     <div className="mobile-nav-menu" onClick={(e) => e.stopPropagation()}>
                         <div className='mobile-content-menu'>
-                            <div className='mobile-content-item' onClick={closeMobileMenu}>
+                            <Link to="/dashboard" className='mobile-content-item' onClick={closeMobileMenu}>
                                 <LayoutDashboardIcon className="mobile-icon" />
                                 <p>Dashboard</p>
-                            </div>
+                            </Link>
 
-                            <div className='mobile-content-item' onClick={closeMobileMenu}>
+                            <Link to="/reports" className='mobile-content-item' onClick={closeMobileMenu}>
                                 <AlertCircleIcon className='mobile-icon' />
                                 <p>Reports</p>
-                            </div>
+                            </Link>
 
-                            <div className='mobile-content-item' onClick={closeMobileMenu}>
+                            <Link to="/archive" className='mobile-content-item' onClick={closeMobileMenu}>
                                 <ArchiveIcon className='mobile-icon' />
                                 <p>Archive</p>
-                            </div>
+                            </Link>
 
                             <div className='mobile-content-item' onClick={closeMobileMenu}>
                                 <TimerIcon className='mobile-icon' />
