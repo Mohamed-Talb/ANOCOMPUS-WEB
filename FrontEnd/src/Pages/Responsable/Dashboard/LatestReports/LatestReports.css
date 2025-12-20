@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.LatestReports {
+    width: 100%;
+    height: 600px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(20px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.LatestReports::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 165, 0, 0.5), transparent);
+}
+
+.LatestReports::-webkit-scrollbar {
+    width: 6px;
+}
+
+.LatestReports::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+    margin: 10px 0;
+}
+
+.LatestReports::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+    margin: 10px 0;
+}
+
+.LatestReports::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+.LatestReports .header-el {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 20px 25px 15px 25px;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    z-index: 10;
+    border-bottom: 1px solid rgba(255, 165, 0, 0.1);
+}
+
+.LatestReports .title-el {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    letter-spacing: -0.5px;
+}
+
+.LatestReports .view-all-el {
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px 0 rgba(255, 107, 53, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.LatestReports .view-all-el::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.LatestReports .view-all-el:hover::before {
+    left: 100%;
+}
+
+.LatestReports .view-all-el:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px 0 rgba(255, 107, 53, 0.4);
+}
+
+.report-item {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+    border: 1px solid rgba(255, 165, 0, 0.1);
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.report-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.report-item:hover::before {
+    opacity: 1;
+}
+
+.report-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: rgba(255, 165, 0, 0.3);
+}
+
+.report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.report-title-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.report-item .title-el-func {
+    font-size: 20px;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+    line-height: 1.4;
+    letter-spacing: -0.3px;
+}
+
+.report-item .content-el-func {
+    margin: 0;
+    font-size: 15px;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    color: #64748b;
+    line-height: 1.7;
+    margin-top: 12px;
+    letter-spacing: 0.2px;
+}
+
+.report-date {
+    font-size: 13px;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    color: #ff6b35;
+    font-weight: 500;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 140, 66, 0.1) 100%);
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    transition: all 0.3s ease;
+}
+
+.report-item:hover .report-date {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(255, 140, 66, 0.15) 100%);
+    border-color: rgba(255, 107, 53, 0.3);
+}
+
+.report-date .date-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+}
+
+.report-status-badge {
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+.status-indicator {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-critical {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(220, 38, 38, 0.15) 100%);
+    color: #dc2626;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.status-pending {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(245, 158, 11, 0.15) 100%);
+    color: #d97706;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.status-fixed {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(22, 163, 74, 0.15) 100%);
+    color: #16a34a;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+/* Mobile Responsive Styles */
+
+@media (max-width: 768px) {
+    .LatestReports {
+        margin: 20px auto;
+        width: 90%;
+        height: calc(90vh - 180px);
+        border-radius: 0;
+        box-shadow: 2px 2px 5px #e0e0e0;
+        border: 1px solid rgb(151, 146, 146);
+        padding: 0;
+    }
+
+    .LatestReports .header-el {
+        padding: 15px;
+        flex-direction: row;
+        align-items: center;
+        gap: 0;
+        border-bottom: 1px solid #e0e0e0;
+        margin-bottom: 0;
+    }
+
+    .LatestReports .title-el {
+        font-size: 18px;
+    }
+
+    .LatestReports .view-all-el {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .report-item {
+        width: calc(100% - 30px);
+        margin: 10px 15px;
+        padding: 15px;
+        border-width: 1px;
+        box-sizing: border-box;
+    }
+
+    .report-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
+    .report-title-section {
+        gap: 8px;
+    }
+
+    .report-date .date-icon {
+        width: 12px;
+        height: 12px;
+        margin-right: 3px;
+    }
+
+    .report-date {
+        font-size: 11px;
+        padding: 3px 6px;
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .LatestReports {
+        height: calc(100vh - 160px);
+        width: 95%;
+        margin: 10px auto;
+    }
+
+    .LatestReports .header-el {
+        padding: 12px;
+    }
+
+    .LatestReports .title-el {
+        font-size: 16px;
+    }
+
+    .report-item {
+        width: calc(100% - 24px);
+        margin: 8px 12px;
+        padding: 12px;
+        box-sizing: border-box;
+    }
+
+    .report-item .title-el-func {
+        font-size: 18px;
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        color: #1f2937;
+        margin: 0;
+        line-height: 1.4;
+    }
+
+    .report-item .content-el-func {
+        margin: 0;
+        font-size: 14px;
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        color: #6b7280;
+        line-height: 1.6;
+        margin-top: 8px;
+    }
+
+    .report-date .date-icon {
+        width: 11px;
+        height: 11px;
+    }
+}
