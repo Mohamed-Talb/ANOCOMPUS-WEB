@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import Menu from '../SharedComponents/Mainmenu.tsx'
+import Menu from '../../../Shared/MainMenu/Mainmenu.tsx'
 import './Reports.css'
-import '../SharedComponents/DarkMode.css'
-import { SetUpTable } from '../report-table/report-table.tsx'
+// import '../SharedComponents/DarkMode.css'
+import { SetUpTable } from '../../../Shared/report-table/report-table.tsx'
 
 function allReports() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)

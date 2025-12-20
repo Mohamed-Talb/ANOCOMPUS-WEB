@@ -1,6 +1,6 @@
-import Menu from '../SharedComponents/Mainmenu.tsx'
-import ReportsComponents from '../SharedComponents/ReportsComponents.tsx'
-import Anomaly_Details from '../SharedComponents/Anomaly_Details.tsx'
+import Menu from '../../../Shared/MainMenu/Mainmenu.tsx'
+import ReportsComponents from '../../../../SharedComponents/ReportsComponents.tsx'
+import Anomaly_Details from '../../../Shared/AnomalyDetails/Anomaly_Details.tsx'
 
 import { useState } from 'react';
 import './Archive.css'

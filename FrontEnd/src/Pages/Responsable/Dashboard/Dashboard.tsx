@@ -1,7 +1,7 @@
-import StatsOverview from '../SharedComponents/overview';
-import AnnoncementsComp from '../SharedComponents/AnnoncementsComp';
-import LatestReports from '../SharedComponents/LatestReports';
-import Mainmenu from '../SharedComponents/Mainmenu';
+import StatsOverview from './StatsOverview/overview';
+import LatestAnnoncements from './LatestAnnoncements/LatestAnnoncements';
+import LatestReports from './LatestReports/LatestReports';
+import Mainmenu from '../../../Shared/MainMenu/Mainmenu';
 import './Dashboard.css';
 
 function Dashboard() {
@@ -21,7 +21,7 @@ function Dashboard() {
                         <LatestReports />
                     </div>
                     <div className="section-item">
-                        <AnnoncementsComp />
+                        <LatestAnnoncements />
                     </div>
                 </section>
             </div>
