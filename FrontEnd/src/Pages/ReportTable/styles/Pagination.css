@@ -31,7 +31,7 @@
 .pagination-info {
   padding: 8px 16px;
   border-radius: 8px;
-  background: linear-gradient(90deg, #f07646 0%, #a44602 100%);
+  background: #f07646;
   color: #ffffff;
   font-weight: 600;
   font-size: 14px;
