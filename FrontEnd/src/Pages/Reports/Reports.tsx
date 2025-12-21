@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './Reports.css'
-import  {ReportsTable}  from '../ReportTable/ReportTable'
+import  {ReportsTable}  from './ReportTable'
 
 function allReports() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
