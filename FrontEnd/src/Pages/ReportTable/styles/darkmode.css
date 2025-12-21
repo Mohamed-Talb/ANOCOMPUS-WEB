@@ -1,0 +1,120 @@
+/* ===============================================
+   DARK MODE
+=============================================== */
+
+.dark .reports-page-wrapper {
+  background: #0f0f0f;
+  color: #e5e7eb;
+}
+
+/* ---------------------------------------
+   TABLE CONTAINER
+---------------------------------------- */
+.dark .reports-table-container {
+  background: #141414;
+  border: 1px solid #262626;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------------------------------------
+   SCROLLBAR
+---------------------------------------- */
+.dark .table-scroll-wrapper::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+.dark .table-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+}
+
+.dark .table-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #525252;
+}
+
+/* ---------------------------------------
+   TABLE HEADER
+---------------------------------------- */
+.dark .table-header {
+  background: linear-gradient(180deg, #1a1a1a 0%, #141414 100%);
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.dark .table-header-cell {
+  color: #f3f4f6;
+}
+
+.dark .table-header-cell::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 140, 67, 0.7) 50%,
+    transparent 100%
+  );
+}
+
+/* ---------------------------------------
+   TABLE BODY
+---------------------------------------- */
+.dark .table-body {
+  background: #141414;
+}
+
+/* ---------------------------------------
+   TABLE ROWS
+---------------------------------------- */
+.dark .table-row {
+  border-bottom: 1px solid #262626;
+}
+
+.dark .table-row:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 140, 67, 0.15) 0%,
+    rgba(255, 106, 0, 0.08) 100%
+  );
+  box-shadow:
+    inset 4px 0 0 #ff8c43,
+    0 4px 14px rgba(255, 140, 67, 0.35);
+}
+
+/* ---------------------------------------
+   TABLE CELLS
+---------------------------------------- */
+.dark .table-cell {
+  color: #d1d5db;
+}
+
+.dark .table-row:hover .table-cell {
+  color: #ffffff;
+}
+
+.dark .table-cell-date {
+  color: #9ca3af;
+}
+
+.dark .table-cell-title {
+  color: #f9fafb;
+}
+
+/* ---------------------------------------
+   USER CELL
+---------------------------------------- */
+.dark .user-name {
+  color: #f3f4f6;
+}
+
+.dark .table-row:hover .user-name {
+  color: #ff8c43;
+}
+
+/* ---------------------------------------
+   AVATAR
+---------------------------------------- */
+.dark .user-avatar {
+  background: linear-gradient(135deg, #ff8c43 0%, #ff6a00 100%);
+  box-shadow: 0 6px 18px rgba(255, 140, 67, 0.55);
+}
+
+.dark .table-row:hover .user-avatar {
+  box-shadow: 0 8px 26px rgba(255, 140, 67, 0.75);
+}

@@ -1,50 +1,52 @@
+import './Badges.css';
 
-function getBadgeStyles(text: string, type: string) 
+interface BadgeProps 
 {
-  const lowerText = text.toLowerCase();
-
-    if (type === "category")
-        return {backgroundColor: "#e3f2fd", color: "#1565c0",};
-    if (type === "severity") 
-    {
-        if (lowerText.includes("high")) 
-            return { backgroundColor: "#ffe5e5", color: "#d32f2f" };
-        else if (lowerText.includes("medium"))
-            return { backgroundColor: "#fff4e5", color: "#f57c00" };
-        else if (lowerText.includes("low"))
-            return { backgroundColor: "#e8f5e9", color: "#2e7d32" };
-        else 
-            return { backgroundColor: "#f5f5f5", color: "#616161" };
-    }
-    else
-    {
-        if (lowerText.includes("pending"))
-            return { backgroundColor: "#fff8e1", color: "#f57c00" };
-        else if (lowerText.includes("completed"))
-            return { backgroundColor: "#e8f5e9", color: "#2e7d32" };
-        else if (lowerText.includes("in progress"))
-            return { backgroundColor: "#e3f2fd", color: "#1565c0" };
-        else
-            return { backgroundColor: "#f5f5f5", color: "#616161" };
-    }
+  text: string;
+  type: 'category' | 'severity' | 'status';
 }
 
-export default function Badge({ text, type }: { text: string; type: string}) {
-  const styles = getBadgeStyles(text, type);
+export default function Badge({ text, type }: BadgeProps) 
+{
+  const getClassName = () => {
+    if (type === 'category') 
+    {
+      const categoryColors: Record<string, string> = {
+        Finance: 'badge-finance',
+        Development: 'badge-development',
+        IT: 'badge-it',
+        Support: 'badge-support',
+        Marketing: 'badge-marketing',
+        HR: 'badge-hr',
+      };
+      return categoryColors[text] || 'badge-default';
+    }
+
+    if (type === 'severity') 
+    {
+      const severityColors: Record<string, string> = 
+      {
+        High: 'badge-high',
+        Medium: 'badge-medium',
+        Low: 'badge-low',
+      };
+      return severityColors[text] || 'badge-default';
+    }
+
+    if (type === 'status') {
+      const statusColors: Record<string, string> = {
+        Pending: 'badge-pending',
+        'In Progress': 'badge-in-progress',
+        Completed: 'badge-completed',
+      };
+      return statusColors[text] || 'badge-default';
+    }
+    return 'badge-default';
+  };
 
   return (
-    <button style=
-    {{
-      display: "inline-block",
-      padding: "8px 20px",
-      borderRadius: "20px",
-      fontSize: "16px",
-      fontWeight: 600,
-      color: styles.color,
-      backgroundColor: styles.backgroundColor,
-      border: "none",
-      cursor: "pointer",
-      transition: "all 0.2s ease",
-    }}> {text} </button>
+    <span className={`badge ${getClassName()}`}>
+      {text}
+    </span>
   );
 }
