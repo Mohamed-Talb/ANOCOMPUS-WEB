@@ -1,0 +1,42 @@
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.info-item__icon {
+  color: #FF9800;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.info-item__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+
+.info-item__label {
+  font-size: 14px;
+  color: #999;
+}
+
+.info-item__value {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.info-item__value--default {
+  color: #333;
+}
+
+.info-item__value--expired {
+  color: #f44336;
+}
+
+.info-item__value--valid {
+  color: #4caf50;
+}
