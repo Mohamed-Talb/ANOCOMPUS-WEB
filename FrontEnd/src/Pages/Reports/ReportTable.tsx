@@ -4,9 +4,7 @@ import PaginationTable from './Pagination';
 import Badge from '../../Common/Badges.tsx';
 import './styles/ReportsTable.css';
 
-
-export type Report =
-{
+export type Report = {
   id: number;
   user: string;
   avatar: string;
@@ -18,7 +16,11 @@ export type Report =
   status: string;
 };
 
-export function Table({ data, columns }: { data: Report[], columns: string[] }) {
+export function Table({ data, columns, onRowClick }: { 
+  data: Report[], 
+  columns: string[],
+  onRowClick: (report: Report) => void 
+}) {
   return (
     <div className="reports-table-container">
       <div className="table-scroll-wrapper">
@@ -34,7 +36,20 @@ export function Table({ data, columns }: { data: Report[], columns: string[] }) 
           </thead>
           <tbody className="table-body">
             {data.map((report) => (
-              <tr key={report.id} className="table-row">
+              <tr 
+                key={report.id} 
+                className="table-row"
+                onClick={() => onRowClick(report)}
+                style={{ cursor: 'pointer' }}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onRowClick(report);
+                  }
+                }}
+              >
                 <td className="table-cell">
                   <div className="user-cell">
                     <div className="user-avatar">
@@ -63,21 +78,34 @@ export function Table({ data, columns }: { data: Report[], columns: string[] }) 
   );
 }
 
-export function ReportsTable() 
-{
+export function ReportsTable() {
   const columns: string[] = ["user", "date", "title", "priority", "status", "severity"];
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 10;
   const totalPages = Math.ceil(reports.length / rowsPerPage);
   const currentReports = reports.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
 
+  const handleRowClick = (report: Report) => {
+    // Navigate to report details page
+    // Option 1: Using React Router (uncomment if using React Router)
+    // navigate(`/reports/${report.id}`);
+    
+    // Option 2: Using window.location (uncomment to use)
+    // window.location.href = `/reports/${report.id}`;
+    
+    // Option 3: For testing - logs the clicked report
+    console.log('Navigating to report details:', report);
+    alert(`Opening report: ${report.title} (ID: ${report.id})`);
+  };
   return (
     <div className="reports-page-wrapper">
-      <Table data={currentReports} columns={columns} />
-      <PaginationTable
-        currentPage={currentPage}
-        totalPages={totalPages}
-        setCurrentPage={setCurrentPage}/>
+      <Table data={currentReports} columns={columns} onRowClick={handleRowClick}/>
+      <PaginationTable currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage}/>
     </div>
   );
 }
+
+
+// add the redirect to reports details
+// chnage the icon of profile 
+// the user always displaying 

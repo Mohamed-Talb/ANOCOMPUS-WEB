@@ -21,7 +21,7 @@
  */
 
 import React from 'react';
-import { FiEdit2, FiTrash2, FiX } from 'react-icons/fi';
+import {FiEdit2, FiTrash2, FiX } from 'react-icons/fi';
 import { DynamicInfoItem } from './infoItems';
 import './NoticePopup.css';
 
@@ -40,8 +40,7 @@ interface NoticePopupProps {
   infoItems: InfoItemData[];
   details: string;
   onEdit?: () => void;
-  onDelete?: () => void;
-}
+  onDelete?: () => void;}
 
 export const NoticePopup: React.FC<NoticePopupProps> = ({
   isOpen,
@@ -110,13 +109,7 @@ export const NoticePopup: React.FC<NoticePopupProps> = ({
         {/* Info Items Grid */}
         <div className="notice-popup__info-grid">
           {infoItems.map((item, index) => (
-            <DynamicInfoItem
-              key={index}
-              type={item.type}
-              value={item.value}
-              isExpired={item.isExpired}
-            />
-          ))}
+            <DynamicInfoItem key={index} type={item.type} value={item.value} isExpired={item.isExpired}/>))}
         </div>
 
         {/* Details Section */}

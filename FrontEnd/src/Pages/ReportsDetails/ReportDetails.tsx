@@ -52,9 +52,6 @@ const zoubir: Person = {
   LastName: "El Amrani",
 };
 
-
-
-
 const person1: Person = {
   type: "staff",
   Firstname: "Alice",

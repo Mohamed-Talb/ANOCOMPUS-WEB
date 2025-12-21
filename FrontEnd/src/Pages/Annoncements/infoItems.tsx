@@ -19,20 +19,12 @@
  */
 
 import React from 'react';
-import { 
-  BsGeoAlt, 
-  BsCalendar3, 
-  BsShieldX 
-} from 'react-icons/bs';
+import { BsGeoAlt, BsCalendar3, BsShieldX } from 'react-icons/bs';
 import './infoItems.css';
 
 type InfoType = 'local' | 'datetime' | 'expiry';
 
-interface DynamicInfoItemProps {
-  type: InfoType;
-  value: string;
-  isExpired?: boolean;
-}
+interface DynamicInfoItemProps {type: InfoType; value: string; isExpired?: boolean;}
 
 export const DynamicInfoItem: React.FC<DynamicInfoItemProps> = ({ 
   type, 
