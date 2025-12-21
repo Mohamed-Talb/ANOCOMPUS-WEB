@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './Reports.css'
-import { SetUpTable } from '../ReportTable/ReportTable'
+import  {ReportsTable}  from '../ReportTable/ReportTable'
 
 function allReports() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -87,7 +87,7 @@ function allReports() {
             </div>
 
             <div className='table-el'>
-                <SetUpTable />
+                <ReportsTable />
             </div>
         </div>
 

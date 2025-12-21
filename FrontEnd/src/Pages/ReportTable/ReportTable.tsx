@@ -67,7 +67,7 @@ export function ReportsTable()
 {
   const columns: string[] = ["user", "date", "title", "priority", "status", "severity"];
   const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 11;
+  const rowsPerPage = 10;
   const totalPages = Math.ceil(reports.length / rowsPerPage);
   const currentReports = reports.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
 
