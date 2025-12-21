@@ -1,8 +1,8 @@
 import type { Report } from "../ReportDetails";
-import Location from "../SharedComponents/Location";
-import { IconDots } from "../SharedComponents/Icons";
-import AttachmentGrid from "../SharedComponents/Attachments";
-import UserHeader from "../SharedComponents/UserHeader";
+import Location from "../utiles/Location"
+import { IconDots } from "../../../Common/icons/Icons";
+import AttachmentGrid from "../utiles/Attachments";
+import UserHeader from "../utiles/UserHeader";
 
 function Footer({ report }: { report: Report }) {
   const isStaff = report.ReportTo?.type === "staff";

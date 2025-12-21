@@ -1,4 +1,4 @@
-import IconLocation from "./Icons"
+import IconLocation from "../../../Common/icons/Icons"
 
 export default function Location({ location }: { location?: string }) {
   if (!location) return null;

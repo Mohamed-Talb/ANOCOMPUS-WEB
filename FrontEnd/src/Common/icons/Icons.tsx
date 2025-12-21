@@ -18,6 +18,7 @@ export default function IconLocation()
     </svg>
   );
 }
+
 export function IconDots() {
   return (
     <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
@@ -25,6 +26,7 @@ export function IconDots() {
     </svg>
   );
 }
+
 export function IconGrid() {
   return (
     <svg fill="currentColor" viewBox="0 0 20 20">
@@ -32,6 +34,7 @@ export function IconGrid() {
     </svg>
   );
 }
+
 export function IconChevronDown() {
   return (
     <svg fill="currentColor" viewBox="0 0 20 20">

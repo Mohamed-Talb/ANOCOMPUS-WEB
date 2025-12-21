@@ -2,50 +2,37 @@ import React from "react";
 
 
 // ReportPage.tsx
-import './Styles/ReportDetails.css';    // Global first
-// MainReport.tsx
+import './Styles/ReportDetails.css';  
 import './Styles/MainReport.css';
 import './Styles/Footer.css';
-// RelatedReports.tsx
 import './Styles/RelatedReport.css';
-// UserHeader.tsx
 import './Styles/UserHeader.css';
-// Attachments.tsx
-import './Styles/Attachments.css';
-// Conversation.tsx
+import './Styles/Attachments.css'
 import './Styles/Conversation.css';
-
 import "./Styles/Darckmode.css";
-// import "./Styles/index.css";
-
-// import "./Styles/RelatedReports.css"
-// import "./Styles/ReportCard.css"
-// import "./Styles/Base.css"
-// import "./Styles/Attachments.css"
-// import "./Styles/Conversation.css"
-// import "./Styles/Footer.css"
-// import "./Styles/layout.css"
 
 import CommentsSection from "./Components/Convirsation";
 import MainReport from "./Components/MainReport";
-import RelatedSession from "./Components/RelatedReports";
 
 
 
 
-export type Person = {
+export type Person = 
+{
   type: string;
   Firstname: string;
   LastName: string;
 };
 
-export type Attachment = {
+export type Attachment = 
+{
   name: string;
   url: string;
   type: string;
 };
 
-export type Report = {
+export type Report = 
+{
   ReportFrom: Person;
   ReportTo: Person;
   Title: string;

@@ -1,10 +1,10 @@
 import type { Report } from "../ReportDetails";
-import Location from "../SharedComponents/Location";
-import { IconDots } from "../SharedComponents/Icons";
-import AttachmentGrid from "../SharedComponents/Attachments";
-import UserHeader from "../SharedComponents/UserHeader";
-import { IconChevronDown } from "../SharedComponents/Icons";
-import { IconGrid } from "../SharedComponents/Icons";
+import Location from "../utiles/Location";
+import { IconDots } from "../../../Common/icons/Icons";
+import AttachmentGrid from "../utiles/Attachments";
+import UserHeader from "../utiles/UserHeader";
+import { IconChevronDown } from "../../../Common/icons/Icons";
+import { IconGrid } from "../../../Common/icons/Icons";
 // --- RelatedCard Component (SPECIFIC) ---
 function RelatedCard({ report }: { report: Report }) {
   return (

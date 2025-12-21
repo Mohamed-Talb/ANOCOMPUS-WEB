@@ -1,21 +1,27 @@
-import { Routes, Route } from 'react-router-dom'
-import Dashboard from './Pages/Responsable/Dashboard/Dashboard'
-import Archive from './Pages/Responsable/Archive/Archive'
-import Reports from './Pages/Responsable/Reports/Reports'
-import ReportDetails from './Pages/ReportsDetails/ReportDetails'
+// import { Routes, Route } from 'react-router-dom'
+// import Dashboard from './Pages/Responsable/Dashboard/Dashboard'
+// import Archive from './Pages/Responsable/Archive/Archive'
+// import Reports from './Pages/Responsable/Reports/Reports'
+// import ReportDetails from './Pages/ReportsDetails/ReportDetails'
+import { SetUpTable } from './Pages/ReportTable/ReportTable'
+// export function App() {
+//   return (
+//     <Routes>
+//       <Route path="/" element={<Dashboard />} />
+//       <Route path="/dashboard" element={<Dashboard />} />
+//       <Route path="/reports" element={<Reports />} />
+//       <Route path="/reports/:id" element={<ReportDetails />} />
+//       <Route path="/archive" element={<Archive />} />
+//       {/* <Route path="/schedule" element={<Schedule />} />
+//       <Route path="/announcements" element={<Announcements />} />
+//       <Route path="/team" element={<MyTeam />} /> */}
+//     </Routes>
+//   )
+// }
 
-export function App() {
+export function App() 
+{
   return (
-    <Routes>
-      <Route path="/" element={<Dashboard />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/reports" element={<Reports />} />
-      <Route path="/reports/:id" element={<ReportDetails />} />
-      <Route path="/archive" element={<Archive />} />
-
-      {/* <Route path="/schedule" element={<Schedule />} />
-      <Route path="/announcements" element={<Announcements />} />
-      <Route path="/team" element={<MyTeam />} /> */}
-    </Routes>
+    <SetUpTable />
   )
 }
