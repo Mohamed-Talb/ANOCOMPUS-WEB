@@ -12,6 +12,10 @@ export function App() {
       <Route path="/reports" element={<Reports />} />
       <Route path="/reports/:id" element={<ReportDetails />} />
       <Route path="/archive" element={<Archive />} />
+
+      {/* <Route path="/schedule" element={<Schedule />} />
+      <Route path="/announcements" element={<Announcements />} />
+      <Route path="/team" element={<MyTeam />} /> */}
     </Routes>
   )
 }
