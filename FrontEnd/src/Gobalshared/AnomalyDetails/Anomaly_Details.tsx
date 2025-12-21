@@ -1,4 +1,3 @@
-import { Divide } from 'lucide-react';
 import './Anomaly_Details.css'
 import { X } from 'lucide-react';
 
@@ -50,11 +49,11 @@ function Anomaly_Details({ onClose } : {onClose : () => void}) {
                 <div className='attachments-section'>
                     <label>Attachments</label>
                     <div className='attachments-list'>
-                        <div className='attachment-item'>
+                        <div className='attachment-item_details'>
                             <span className='attachment-icon'>📎</span>
                             <span className='attachment-name'>photo-1.jpg</span>
                         </div>
-                        <div className='attachment-item'>
+                        <div className='attachment-item_details'>
                             <span className='attachment-icon'>📎</span>
                             <span className='attachment-name'>rapport.pdf</span>
                         </div>

@@ -1,5 +1,4 @@
-import Menu from '../../Gobalshared/MainMenu/Mainmenu.tsx'
-import ReportsComponents from '../../../SharedComponents/ReportsComponents.tsx'
+import ReportsComponents from './ReportsComponent/ReportsComponents.tsx'
 import Anomaly_Details from '../../Gobalshared/AnomalyDetails/Anomaly_Details.tsx'
 
 import { useState } from 'react';
@@ -43,12 +42,16 @@ function Archive() {
 
         <div className='container-archive-el'>
 
-            <Menu />
-
             <div className='filter-el'>
-                <h1 className='title-arcive-el'>Archive</h1>
+                <h1 className='title-archive-el'>Archive</h1>
                 <div className='compo-el'>
                     <div className='groupe-el'>
+                        <input
+                            className="input-search-el"
+                            type="search"
+                            placeholder="Search..."
+                            name="searchbar"
+                        />
                         <svg viewBox="0 0 24 24" aria-hidden="true" className="search-icon">
                             <g>
                                 <path
@@ -56,14 +59,8 @@ function Archive() {
                                 ></path>
                             </g>
                         </svg>
-                        <input
-                            className="input-search-el"
-                            type="search"
-                            placeholder="Search..."
-                            name="searchbar"
-                        />
                     </div>
-                    <p>Total <span>100</span> Archived</p>
+                    <p>Total <span>{reportsTable.length}</span> Archived</p>
                 </div>
             </div>
 

@@ -1,5 +1,4 @@
 import './LatestReports.css'
-// import './DarkMode.css'
 import { FileText } from 'lucide-react'
 
 function ReportItem({ title, content, date, status }: { title: string; content: string; date: string; status: string }) {

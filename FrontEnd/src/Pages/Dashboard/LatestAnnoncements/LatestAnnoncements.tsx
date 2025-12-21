@@ -1,5 +1,4 @@
 import './LatestAnnoncements.css'
-// import './DarkMode.css'
 import { Calendar } from 'lucide-react'
 
 function AnnouncementItem({ title, content, date }: { title: string, content: string, date: string }) {

@@ -1,10 +1,10 @@
 import './Mainmenu.css'
 import { LayoutDashboardIcon, AlertCircleIcon, ArchiveIcon, TimerIcon, BellIcon, MoonIcon, SunIcon, Users, Megaphone, Menu, X } from 'lucide-react';
-import { DropdownAvatar } from '../../Pages/Responsable/Dashboard/DropdownAvatar/DropdownAvatar';
+import { DropdownAvatar } from '../../Pages/Dashboard/DropdownAvatar/DropdownAvatar'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-
-function mainMenu() {
+import logo from '../../../public/logoWebsite.png'
+function MainMenu() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -22,50 +22,50 @@ function mainMenu() {
     };
 
     return (
-        <div className="container">
+        <header className="container">
 
             <div className="logo-el">
                 <img
-                    src="../Public/logoWebsite.png"
+                    src={logo}
                     alt="Management System Logo"
                     className="logo-image"
                 />
             </div>
 
-            <div className="navigation-el desktop-nav">
+            <nav className="navigation-el desktop-nav">
                 <div className='content-menu-el'>
                     <Link to="/dashboard" className='content-1'>
                         <LayoutDashboardIcon className="LayoutDashboardIcon" />
-                        <p>Dashboard</p>
+                        <span>Dashboard</span>
                     </Link>
 
                     <Link to="/reports" className='content-2'>
                         <AlertCircleIcon className='AlertCircleIcon' />
-                        <p>Reports</p>
+                        <span>Reports</span>
                     </Link>
 
                     <Link to="/archive" className='content-2'>
                         <ArchiveIcon className='ArchiveIcon' />
-                        <p>Archive</p>
+                        <span>Archive</span>
                     </Link>
 
                     <div className='content-3'>
                         <TimerIcon className='TimerIcon' />
-                        <p>Schedule</p>
+                        <span>Schedule</span>
                     </div>
 
                     <div className='content-5'>
                         <Megaphone className='MegaphoneIcon' />
-                        <p>Announcements</p>
+                        <span>Announcements</span>
                     </div>
 
                     <div className='content-4'>
                         <Users className='UsersIcon' />
-                        <p>My Team</p>
+                        <span>Teams</span>
                     </div>
 
                 </div>
-            </div>
+            </nav>
 
             <div className="user-el">
                 <div className='dark-mode-toggle'>
@@ -84,7 +84,7 @@ function mainMenu() {
                     <DropdownAvatar
                         userName="Olivia Rhye"
                         userEmail="olivia@example.com"
-                        avatarSrc="../Public/avatarUser.png"
+                        avatarSrc="/avatarUser.png"
                         onViewProfile={() => console.log('View profile')}
                         onSettings={() => console.log('Settings')}
                         onLogout={() => console.log('Logout')}
@@ -105,38 +105,43 @@ function mainMenu() {
             {isMobileMenuOpen && (
                 <div className="mobile-nav-overlay" onClick={closeMobileMenu}>
                     <div className="mobile-nav-menu" onClick={(e) => e.stopPropagation()}>
-                        <div className='mobile-content-menu'>
+                        <nav className='mobile-content-menu'>
                             <Link to="/dashboard" className='mobile-content-item' onClick={closeMobileMenu}>
                                 <LayoutDashboardIcon className="mobile-icon" />
-                                <p>Dashboard</p>
+                                <span>Dashboard</span>
                             </Link>
 
                             <Link to="/reports" className='mobile-content-item' onClick={closeMobileMenu}>
                                 <AlertCircleIcon className='mobile-icon' />
-                                <p>Reports</p>
+                                <span>Reports</span>
                             </Link>
 
                             <Link to="/archive" className='mobile-content-item' onClick={closeMobileMenu}>
                                 <ArchiveIcon className='mobile-icon' />
-                                <p>Archive</p>
+                                <span>Archive</span>
                             </Link>
 
                             <div className='mobile-content-item' onClick={closeMobileMenu}>
                                 <TimerIcon className='mobile-icon' />
-                                <p>Schedule</p>
+                                <span>Schedule</span>
+                            </div>
+
+                            <div className='mobile-content-item' onClick={closeMobileMenu}>
+                                <Megaphone className='mobile-icon' />
+                                <span>Announcements</span>
                             </div>
 
                             <div className='mobile-content-item' onClick={closeMobileMenu}>
                                 <Users className='mobile-icon' />
-                                <p>My Team</p>
+                                <span>Teams</span>
                             </div>
-                        </div>
+                        </nav>
                     </div>
                 </div>
             )}
 
-        </div>
+        </header>
     );
 }
 
-export default mainMenu;
+export default MainMenu;

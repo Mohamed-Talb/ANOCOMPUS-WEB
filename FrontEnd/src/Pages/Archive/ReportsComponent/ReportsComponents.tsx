@@ -1,5 +1,5 @@
 import './ReportsComponents.css'
-import Anomaly_Details from '../SharedComponents/Anomaly_Details.tsx'
+// import Anomaly_Details from '../SharedComponents/Anomaly_Details.tsx'
 
 function ReportsComponents({ status, title, date, onClose }: { status: string; title: string; date: string, onClose: () => void }) {
 
