@@ -1,0 +1,511 @@
+/* ===============================================
+   DARK MODE STYLES
+   =============================================== */
+
+/* Add this to detect system dark mode preference */
+@media (prefers-color-scheme: dark) {
+  
+  /* ---------------------------------------
+     GLOBAL RESET & BASE
+  ---------------------------------------- */
+  body {
+    background-color: #0f0f10;
+    color: #e5e5e7;
+  }
+  
+  /* ---------------------------------------
+     PAGE LAYOUT
+  ---------------------------------------- */
+  .page-container {
+    background-color: #0f0f10;
+  }
+  
+  /* ---------------------------------------
+     CARD CONTAINERS
+  ---------------------------------------- */
+  .report-card,
+  .related-card {
+    background: #1c1c1e;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .report-card:hover,
+  .related-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* ---------------------------------------
+     CARD HEADER & USER INFO
+  ---------------------------------------- */
+  .user-name {
+    color: #ffffff;
+  }
+  
+  .is-in-text {
+    color: #98989d;
+  }
+  
+  .report-date {
+    color: #98989d;
+  }
+  
+  /* Menu Button */
+  .menu-button {
+    color: #98989d;
+  }
+  
+  .menu-button:hover {
+    color: #ffffff;
+    background: #2c2c2e;
+  }
+  
+  /* ---------------------------------------
+     LOCATION
+  ---------------------------------------- */
+  .location-text {
+    color: #c7c7cc;
+  }
+  
+  .location-text svg {
+    color: #98989d;
+  }
+  
+  /* ---------------------------------------
+     REPORT CONTENT
+  ---------------------------------------- */
+  .report-title {
+    color: #ffffff;
+  }
+  
+  /* ---------------------------------------
+     ATTACHMENTS
+  ---------------------------------------- */
+  .attachment-item {
+    background: #2c2c2e;
+    border: 1px solid #38383a;
+  }
+  
+  .attachment-item.image-preview {
+    background: #2c2c2e;
+  }
+  
+  /* File Icons - Keep dark colors */
+  .attachment-item.file-icon {
+    background: #1a2332;
+    color: white;
+  }
+  
+  .attachment-item.more-button {
+    background: #2c3e50;
+  }
+  
+  .attachment-item.more-button:hover {
+    background: #34495e;
+  }
+  
+  /* ---------------------------------------
+     DESCRIPTION
+  ---------------------------------------- */
+  .description-label {
+    color: #ffffff;
+  }
+  
+  .description-text {
+    color: #98989d;
+  }
+  
+  /* ---------------------------------------
+     FOOTER
+  ---------------------------------------- */
+  .divider {
+    border-top: 1px solid #38383a;
+  }
+  
+  /* Priority Tags - Dark Mode */
+  .tag.priority-high {
+    background: #3d1a1a;
+    color: #ff6b6b;
+  }
+  
+  .tag.priority-medium {
+    background: #3d2a1a;
+    color: #ffa726;
+  }
+  
+  .tag.priority-low {
+    background: #1a3d2a;
+    color: #66bb6a;
+  }
+  
+  /* Status Tags - Dark Mode */
+  .tag.status-pending {
+    background: #3d331a;
+    color: #ffd54f;
+  }
+  
+  .tag.status-completed {
+    background: #1a3d2a;
+    color: #66bb6a;
+  }
+  
+  .tag.status-in-progress {
+    background: #1a2a3d;
+    color: #64b5f6;
+  }
+  
+  /* Category Tag - Dark Mode */
+  .tag.category {
+    background: #2d1a3d;
+    color: #ba68c8;
+  }
+  
+  /* Buttons */
+  .assign-btn {
+    background: #0a84ff;
+    color: white;
+  }
+  
+  .assign-btn:hover {
+    background: #0070f3;
+  }
+  
+  .edit-btn {
+    background: #2c2c2e;
+    color: #e5e5e7;
+    border: 1px solid #38383a;
+  }
+  
+  .edit-btn:hover {
+    background: #38383a;
+  }
+  
+  /* ---------------------------------------
+     RELATED REPORTS
+  ---------------------------------------- */
+  .related-wrapper {
+    background: #1c1c1e;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .related-empty {
+    color: #98989d;
+  }
+  
+  .related-header {
+    border-bottom: 1px solid #38383a;
+  }
+  
+  .grid-icon {
+    color: #98989d;
+  }
+  
+  .related-title {
+    color: #ffffff;
+  }
+  
+  .related-count {
+    background: #ff6b35;
+    color: white;
+  }
+  
+  .sort-dropdown {
+    color: #98989d;
+  }
+  
+  .sort-dropdown:hover {
+    color: #ffffff;
+  }
+  
+  .related-card {
+    border-bottom: 1px solid #38383a;
+  }
+  
+  /* ---------------------------------------
+     COMMENTS SECTION
+  ---------------------------------------- */
+  .comments-container {
+    background: #1c1c1e;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .chat-title {
+    color: #ffffff;
+    border-bottom: 1px solid #38383a;
+  }
+  
+  .bubble {
+    background: #2c2c2e;
+    color: #e5e5e7;
+  }
+  
+  .comment.right .bubble {
+    background: #0a84ff;
+    color: white;
+  }
+  
+  .author {
+    color: #98989d;
+  }
+  
+  .comment.right .author {
+    color: #d0e8ff;
+  }
+  
+  .message-box {
+    border-top: 1px solid #38383a;
+  }
+  
+  .msg-input {
+    background: #2c2c2e;
+    border: 1px solid #38383a;
+    color: #e5e5e7;
+  }
+  
+  .msg-input:focus {
+    border-color: #0a84ff;
+  }
+  
+  .msg-input::placeholder {
+    color: #636366;
+  }
+  
+  .send-btn {
+    background: #0a84ff;
+  }
+  
+  .send-btn:hover {
+    background: #0070f3;
+  }
+}
+
+/* ===============================================
+   MANUAL DARK MODE CLASS (Optional)
+   Use this if you want to toggle dark mode manually
+   =============================================== */
+
+body.dark-mode {
+  background-color: #0f0f10;
+  color: #e5e5e7;
+}
+
+body.dark-mode .page-container {
+  background-color: #0f0f10;
+}
+
+body.dark-mode .report-card,
+body.dark-mode .related-card {
+  background: #1c1c1e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .report-card:hover,
+body.dark-mode .related-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .user-name {
+  color: #ffffff;
+}
+
+body.dark-mode .is-in-text,
+body.dark-mode .report-date {
+  color: #98989d;
+}
+
+body.dark-mode .menu-button {
+  color: #98989d;
+}
+
+body.dark-mode .menu-button:hover {
+  color: #ffffff;
+  background: #2c2c2e;
+}
+
+body.dark-mode .location-text {
+  color: #c7c7cc;
+}
+
+body.dark-mode .location-text svg {
+  color: #98989d;
+}
+
+body.dark-mode .report-title {
+  color: #ffffff;
+}
+
+body.dark-mode .attachment-item {
+  background: #2c2c2e;
+  border: 1px solid #38383a;
+}
+
+body.dark-mode .attachment-item.image-preview {
+  background: #2c2c2e;
+}
+
+body.dark-mode .attachment-item.file-icon {
+  background: #1a2332;
+}
+
+body.dark-mode .attachment-item.more-button {
+  background: #2c3e50;
+}
+
+body.dark-mode .attachment-item.more-button:hover {
+  background: #34495e;
+}
+
+body.dark-mode .description-label {
+  color: #ffffff;
+}
+
+body.dark-mode .description-text {
+  color: #98989d;
+}
+
+body.dark-mode .divider {
+  border-top: 1px solid #38383a;
+}
+
+body.dark-mode .tag.priority-high {
+  background: #3d1a1a;
+  color: #ff6b6b;
+}
+
+body.dark-mode .tag.priority-medium {
+  background: #3d2a1a;
+  color: #ffa726;
+}
+
+body.dark-mode .tag.priority-low {
+  background: #1a3d2a;
+  color: #66bb6a;
+}
+
+body.dark-mode .tag.status-pending {
+  background: #3d331a;
+  color: #ffd54f;
+}
+
+body.dark-mode .tag.status-completed {
+  background: #1a3d2a;
+  color: #66bb6a;
+}
+
+body.dark-mode .tag.status-in-progress {
+  background: #1a2a3d;
+  color: #64b5f6;
+}
+
+body.dark-mode .tag.category {
+  background: #2d1a3d;
+  color: #ba68c8;
+}
+
+body.dark-mode .assign-btn {
+  background: #0a84ff;
+}
+
+body.dark-mode .assign-btn:hover {
+  background: #0070f3;
+}
+
+body.dark-mode .edit-btn {
+  background: #2c2c2e;
+  color: #e5e5e7;
+  border: 1px solid #38383a;
+}
+
+body.dark-mode .edit-btn:hover {
+  background: #38383a;
+}
+
+body.dark-mode .related-wrapper {
+  background: #1c1c1e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .related-empty {
+  color: #98989d;
+}
+
+body.dark-mode .related-header {
+  border-bottom: 1px solid #38383a;
+}
+
+body.dark-mode .grid-icon {
+  color: #98989d;
+}
+
+body.dark-mode .related-title {
+  color: #ffffff;
+}
+
+body.dark-mode .related-count {
+  background: #ff6b35;
+}
+
+body.dark-mode .sort-dropdown {
+  color: #98989d;
+}
+
+body.dark-mode .sort-dropdown:hover {
+  color: #ffffff;
+}
+
+body.dark-mode .related-card {
+  border-bottom: 1px solid #38383a;
+}
+
+body.dark-mode .comments-container {
+  background: #1c1c1e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .chat-title {
+  color: #ffffff;
+  border-bottom: 1px solid #38383a;
+}
+
+body.dark-mode .bubble {
+  background: #2c2c2e;
+  color: #e5e5e7;
+}
+
+body.dark-mode .comment.right .bubble {
+  background: #0a84ff;
+  color: white;
+}
+
+body.dark-mode .author {
+  color: #98989d;
+}
+
+body.dark-mode .comment.right .author {
+  color: #d0e8ff;
+}
+
+body.dark-mode .message-box {
+  border-top: 1px solid #38383a;
+}
+
+body.dark-mode .msg-input {
+  background: #2c2c2e;
+  border: 1px solid #38383a;
+  color: #e5e5e7;
+}
+
+body.dark-mode .msg-input:focus {
+  border-color: #0a84ff;
+}
+
+body.dark-mode .msg-input::placeholder {
+  color: #636366;
+}
+
+body.dark-mode .send-btn {
+  background: #0a84ff;
+}
+
+body.dark-mode .send-btn:hover {
+  background: #0070f3;
+}

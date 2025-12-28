@@ -79,13 +79,9 @@ function allReports() {
                             </div>
                         )}
                     </div>
-
                     <p>Total <span>100</span> Anomalies</p>
-
                 </div>
-
             </div>
-
             <div className='table-el'>
                 <ReportsTable />
             </div>
