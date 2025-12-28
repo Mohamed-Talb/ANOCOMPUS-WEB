@@ -19,7 +19,7 @@
  */
 
 import React from 'react';
-import './DynamicButton.css';
+import './styles/DynamicButton.css';
 
 type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'outline';
 type ButtonSize = 'small' | 'medium' | 'large';

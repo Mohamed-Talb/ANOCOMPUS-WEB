@@ -3,7 +3,7 @@ import { LayoutDashboardIcon, AlertCircleIcon, ArchiveIcon, TimerIcon, BellIcon,
 import { DropdownAvatar } from '../../Pages/Dashboard/DropdownAvatar/DropdownAvatar'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import logo from '../../../public/logoWebsite.png'
+
 function MainMenu() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,7 +26,7 @@ function MainMenu() {
 
             <div className="logo-el">
                 <img
-                    src={logo}
+                    src="/logoWebsite.png"
                     alt="Management System Logo"
                     className="logo-image"
                 />
@@ -54,10 +54,10 @@ function MainMenu() {
                         <span>Schedule</span>
                     </div>
 
-                    <div className='content-5'>
+                    <Link to="/announcements" className='content-5'>
                         <Megaphone className='MegaphoneIcon' />
                         <span>Announcements</span>
-                    </div>
+                    </Link>
 
                     <div className='content-4'>
                         <Users className='UsersIcon' />

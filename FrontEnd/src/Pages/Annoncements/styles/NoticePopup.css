@@ -60,7 +60,7 @@
 .notice-popup__info-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 24px;
   margin-bottom: 16px;
 }
 
@@ -84,6 +84,9 @@
   margin: 0;
   max-height: 300px;
   overflow-y: auto;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .notice-popup__link {
