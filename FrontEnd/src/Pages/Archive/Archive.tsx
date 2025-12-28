@@ -1,12 +1,12 @@
-import ReportsComponents from './ReportsComponent/ReportsComponents.tsx'
-import Anomaly_Details from '../../Gobalshared/AnomalyDetails/Anomaly_Details.tsx'
+// import Anomaly_Details from '../../Gobalshared/AnomalyDetails/Anomaly_Details.tsx'
 
 import { useState } from 'react';
 import './Archive.css'
+import ArchiveCard from './ReportsComponent/ArchiveCard.tsx';
 
 function Archive() {
 
-    const [open, setOpen] = useState(false);
+    // const [open, setOpen] = useState(false);
 
 
     const reportsTable = [
@@ -64,19 +64,9 @@ function Archive() {
                 </div>
             </div>
 
-            <div className='archived-all-el'>
-                {reportsTable.map((row, i) => (
-                    <ReportsComponents
-                        key={i}
-                        status={row.status}
-                        title={row.title}
-                        date={row.date}
-                        onClose={() => setOpen(true)}
-                    />
-                ))}
-            </div>
 
-            {open && <Anomaly_Details onClose={() => setOpen(false)} />}
+            <ArchiveCard />
+
         </div>
 
     );
