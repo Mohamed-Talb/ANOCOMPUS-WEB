@@ -23,7 +23,7 @@
 import React from 'react';
 import {FiEdit2, FiTrash2, FiX } from 'react-icons/fi';
 import { DynamicInfoItem } from './infoItems';
-import './NoticePopup.css';
+import './styles/NoticePopup.css';
 
 type InfoItemType = 'local' | 'datetime' | 'expiry';
 

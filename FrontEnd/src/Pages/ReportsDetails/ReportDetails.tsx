@@ -13,6 +13,8 @@ import "./Styles/Darckmode.css";
 
 import CommentsSection from "./Components/Convirsation";
 import MainReport from "./Components/MainReport";
+import RelatedSession from "./Components/RelatedReports";
+import {useNavigate} from "react-router-dom";
 
 
 
@@ -46,25 +48,29 @@ export type Report =
   Related: Report[];
 };
 
-const zoubir: Person = {
+const zoubir: Person = 
+{
   type: "zoubir",
   Firstname: "Zoubir",
   LastName: "El Amrani",
 };
 
-const person1: Person = {
+const person1: Person = 
+{
   type: "staff",
   Firstname: "Alice",
   LastName: "Johnson",
 };
 
-const person2: Person = {
+const person2: Person = 
+{
   type: "student",
   Firstname: "Bob",
   LastName: "Smith",
 };
 
-const person3: Person = {
+const person3: Person = 
+{
   type: "staff",
   Firstname: "Charlie",
   LastName: "Brown",
@@ -123,7 +129,8 @@ const report3: Report = {
 };
 
 
-const reportZoubir: Report = {
+const reportZoubir: Report = 
+{
   ReportFrom: person1,
   ReportTo: zoubir, // 👈 important
   Title: "Disciplinary Report",
@@ -143,19 +150,17 @@ const reportZoubir: Report = {
 // MAIN PAGE COMPONENT
 // ===============================================
 
-export default function ReportPage() 
+export default function ReportDetailsPage() 
 {
   const report: Report = report3;
-
+  const navigate = useNavigate();
   return (
     <div className="page-container">
-      {/* Main Report */}
+      <button onClick={() => navigate(-1)}>Back</button>
       <MainReport report={report} />
-      {/* Related Reports Session (if recipient is staff) */}
-      {/* {report.ReportTo.type === "staff" && (<RelatedSession reports={report.Related} />)}*/}
-      {/* Comments Section (if recipient is Zoubir) */}
-      {/*report.ReportTo.type === "zoubir" && <CommentsSection report={report} />} */}
-      <CommentsSection report={reportZoubir} />
+      <CommentsSection report={report}/>
+      {/* {report.ReportTo.type === "staff" && (<RelatedSession reports={report.Related} />)}
+      {report.ReportTo.type === "zoubir" && <CommentsSection report={report} />} */}
     </div>
   );
 }

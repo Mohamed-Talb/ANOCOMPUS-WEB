@@ -20,7 +20,7 @@
 
 import React from 'react';
 import { BsGeoAlt, BsCalendar3, BsShieldX } from 'react-icons/bs';
-import './infoItems.css';
+import './styles/infoItems.css';
 
 type InfoType = 'local' | 'datetime' | 'expiry';
 
