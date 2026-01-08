@@ -1,41 +1,79 @@
-import React from 'react';
-import './overview.css';
+import React from "react";
 
 interface StatCardProps {
   label: string;
   value: number;
   percentage: number;
-  color: 'blue' | 'pink' | 'green' | 'yellow';
+  color: "blue" | "pink" | "green" | "yellow";
 }
 
-const StatCard: React.FC<StatCardProps> = ({ label, value, percentage, color }) => {
+const colorStyles = {
+  blue: {
+    card: "bg-blue-100 dark:bg-[#2a3040]",
+    value: "text-[#6b66ff]",
+    stroke: "#6b66ff",
+  },
+  pink: {
+    card: "bg-pink-100 dark:bg-[#3a2a35]",
+    value: "text-[#ff6b9d]",
+    stroke: "#ff6b9d",
+  },
+  green: {
+    card: "bg-green-100 dark:bg-[#2a3a35]",
+    value: "text-[#00d4aa]",
+    stroke: "#00d4aa",
+  },
+  yellow: {
+    card: "bg-amber-50 dark:bg-[#3a3525]",
+    value: "text-[#ffa726]",
+    stroke: "#ffa726",
+  },
+};
+
+const StatCard: React.FC<StatCardProps> = ({
+  label,
+  value,
+  percentage,
+  color,
+}) => {
   const radius = 25;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (percentage / 100) * circumference;
+  const styles = colorStyles[color];
 
   return (
-    <div className={`stat-card stat-card-${color}`}>
-      <h3 className="stat-label">{label}</h3>
-      <div className="stat-content">
-        <span className={`stat-value stat-value-${color}`}>{value}</span>
-        <div className="circular-progress">
-          <svg width="80" height="80" className="progress-ring">
+    <div className={`rounded-lg p-4 text-center ${styles.card}`}>
+      <h3 className="text-base font-bold text-gray-800 dark:text-gray-200 mb-3 whitespace-nowrap font-['Poppins',Arial,Helvetica,sans-serif]">
+        {label}
+      </h3>
+      <div className="flex items-center justify-between gap-3">
+        <span className={`text-3xl font-bold font-['Poppins',Arial,Helvetica,sans-serif] ${styles.value}`}>
+          {value}
+        </span>
+        <div className="relative w-20 h-20">
+          <svg width="80" height="80" className="-rotate-90">
             <circle
-              className="progress-ring-circle-bg"
+              className="fill-none stroke-[#e8e8f0] dark:stroke-[#3a3f4a]"
               cx="40"
               cy="40"
               r={radius}
+              strokeWidth="6"
             />
             <circle
-              className={`progress-ring-circle progress-ring-${color}`}
+              className="fill-none transition-all duration-500 ease-out"
               cx="40"
               cy="40"
               r={radius}
+              strokeWidth="6"
+              strokeLinecap="round"
+              stroke={styles.stroke}
               strokeDasharray={circumference}
               strokeDashoffset={strokeDashoffset}
             />
           </svg>
-          <span className="percentage-text">{percentage}%</span>
+          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-lg font-semibold text-gray-800 dark:text-gray-200 font-['Poppins',Arial,Helvetica,sans-serif]">
+            {percentage}%
+          </span>
         </div>
       </div>
     </div>
@@ -70,9 +108,11 @@ const StatsOverview: React.FC<StatsOverviewProps> = ({ stats }) => {
   const data = stats || defaultStats;
 
   return (
-    <div className="stats-overview">
-      <h2 className="overview-title">Overview</h2>
-      <div className="stats-grid">
+    <div className="bg-white dark:bg-[#222831] rounded-lg p-6 w-full m-0 shadow-[0_0_5px_rgba(255,255,255,0.8)] box-border border-2 border-white">
+      <h2 className="text-xl font-semibold text-[#ff6b35] mb-5 font-['Poppins',Arial,Helvetica,sans-serif]">
+        Overview
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         <StatCard
           label="Total Anomalies"
           value={data.totalAnomalies}
