@@ -1,139 +1,119 @@
-import type { Person, Report, Attachment } from './types';
+import type { Person, Report } from "./types";
 
-// Persons
-export const zoubir: Person = { type: "zoubir", Firstname: "Zoubir", LastName: "El Amrani" };
-export const person1: Person = { type: "staff", Firstname: "Alice", LastName: "Johnson" };
-export const person2: Person = { type: "student", Firstname: "Bob", LastName: "Smith" };
-export const person3: Person = { type: "staff", Firstname: "Charlie", LastName: "Brown" };
-
-// Reports
-export const report1: Report = {
-  id: "report-1",
-  ReportFrom: person1,
-  ReportTo: person2,
-  Title: "Monthly Sales",
-  Description: "Monthly sales report shows increase in revenue.",
-  Location: "New York Office",
-  Priority: "High",
-  Status: "Pending",
-  Categorie: "Sales",
-  Date: "2025-11-30",
-  Attachments: [
-    { name: "sales-graph.png", url: "/download.png", type: "image/png" },
-    { name: "summary.pdf", url: "/summary.pdf", type: "application/pdf" }
-  ],
-  Related: [],
+// ✅ Persons
+export const zoubir: Person = {
+  type: "zoubir",
+  Firstname: "Zoubir",
+  LastName: "El Amrani",
 };
 
-
-export const report2: Report = {
-  id: "report-2",
-  ReportFrom: person3,
-  ReportTo: person2,
-  Title: "Product Launch Feedback",
-  Description: "Client feedback on new product launch.",
-  Location: "London Branch",
-  Priority: "Medium",
-  Status: "Completed",
-  Categorie: "Client Feedback",
-  Date: "2025-11-29",
-  Attachments: [],
-  Related: [report1],
+export const staff1: Person = {
+  type: "staff",
+  Firstname: "Alice",
+  LastName: "Johnson",
 };
 
-
-export const report3: Report = {
-  id: "report-3",
-  ReportFrom: person2,
-  ReportTo: person1,
-  Title: "IT Maintenance Summary",
-  Description: "Weekly IT system maintenance summary.",
-  Location: "Remote",
-  Priority: "Low",
-  Status: "In Progress",
-  Categorie: "IT",
-  Date: "2025-11-28",
-  Attachments: [
-    { name: "sales-graph.png", url: "/download.png", type: "image/png" },
-    { name: "summary.pdf", url: "/summary.pdf", type: "application/pdf" }
-  ],
-  Related: [report1, report2],
+export const staff2: Person = {
+  type: "staff",
+  Firstname: "Charlie",
+  LastName: "Brown",
 };
 
+export const student1: Person = {
+  type: "student",
+  Firstname: "Bob",
+  LastName: "Smith",
+};
 
+// ✅ Report (1) — To Zoubir ✅ => will show CommentsSection
 export const reportZoubir: Report = {
   id: "report-zoubir-1",
-  ReportFrom: person1,
+  ReportFrom: staff1,
   ReportTo: zoubir,
   Title: "Disciplinary Report",
-  Description: "Incident report requiring review and comments.",
+  Description:
+    "Incident report requiring review and comments. Student was involved in an issue near the library entrance.",
   Location: "Campus A",
   Priority: "High",
   Status: "Open",
   Categorie: "Discipline",
-  Date: "2025-12-01",
+  Date: "2026-01-08T10:00:00",
   Attachments: [
-    { name: "evidence.png", url: "/download.png", type: "image/png" }
+    { name: "evidence.png", url: "/download.png", type: "image/png" },
+    { name: "camera-footage.mp4", url: "/download.png", type: "video/mp4" },
+    { name: "witness-report.pdf", url: "/summary.pdf", type: "application/pdf" },
+    { name: "second-photo.png", url: "/download.png", type: "image/png" },
   ],
   Related: [],
 };
 
+// ✅ Report (2) — Will be used inside RelatedSession cards
+export const reportRelated1: Report = {
+  id: "report-related-1",
+  ReportFrom: student1,
+  ReportTo: staff1,
+  Title: "Login issue",
+  Description:
+    "When I try to log into my session, it shows an error and redirects to the home page.\nSteps:\n1- Click login\n2- Add email/password\n3- shows 403 error.",
+  Location: "Computer Lab",
+  Priority: "Low",
+  Status: "New",
+  Categorie: "Technical",
+  Date: "2026-01-07T09:30:00",
+  Attachments: [
+    { name: "error-screenshot.png", url: "/download.png", type: "image/png" },
+    { name: "console-log.txt", url: "/summary.pdf", type: "text/plain" },
+  ],
+  Related: [],
+};
 
+// ✅ Report (3) — Another related report
+export const reportRelated2: Report = {
+  id: "report-related-2",
+  ReportFrom: staff2,
+  ReportTo: staff1,
+  Title: "Maintenance request",
+  Description:
+    "The projector in room 205 is flickering. Needs replacement or check cable connection.",
+  Location: "Room 205",
+  Priority: "Medium",
+  Status: "On it",
+  Categorie: "Maintenance",
+  Date: "2026-01-06T14:00:00",
+  Attachments: [
+    { name: "projector-photo.png", url: "/download.png", type: "image/png" },
+    { name: "invoice.pdf", url: "/summary.pdf", type: "application/pdf" },
+    { name: "wire-photo.png", url: "/download.png", type: "image/png" },
+  ],
+  Related: [],
+};
+
+// ✅ Report (4) — To Staff ✅ => will show RelatedSession
+export const reportStaffWithRelated: Report = {
+  id: "report-staff-1",
+  ReportFrom: student1,
+  ReportTo: staff1, // ✅ type === "staff"
+  Title: "IT Maintenance Summary",
+  Description:
+    "Weekly IT system maintenance summary.\n- Network checked\n- Router updated\n- HVAC control panel reset",
+  Location: "Remote",
+  Priority: "High",
+  Status: "In Progress",
+  Categorie: "IT",
+  Date: "2026-01-08T08:00:00",
+  Attachments: [
+    { name: "network-diagram.png", url: "/download.png", type: "image/png" },
+    { name: "report.pdf", url: "/summary.pdf", type: "application/pdf" },
+    { name: "logs.txt", url: "/summary.pdf", type: "text/plain" },
+    { name: "room-photo.png", url: "/download.png", type: "image/png" },
+  ],
+  Related: [reportRelated1, reportRelated2], // ✅ RelatedSession will show
+};
+
+// ✅ Sample Reports List used by ReportsList
 export const sampleReports: Report[] = [
-  {
-    id: "sample-1",
-    ReportFrom: { type: "Staff", Firstname: "John", LastName: "Doe" },
-    ReportTo: { type: "Admin", Firstname: "Zoubir", LastName: "Admin" },
-    Title: "Campus + login(new student)",
-    Description: "Heyx, lmhm knt saisit email dyali dt337...",
-    Location: "Building A",
-    Priority: "high",
-    Status: "Fixed",
-    Categorie: "IT",
-    Date: "2025-01-08T10:00:00",
-    Attachments: [],
-    Related: []
-  },
-  {
-    id: "sample-2",
-    ReportFrom: { type: "Staff", Firstname: "Ahmed", LastName: "Mehdi" },
-    ReportTo: { type: "Admin", Firstname: "Zoubir", LastName: "Admin" },
-    Title: "Pace 18 issue",
-    Description: "Khoya Mehdi, Validit l projects kamlin...",
-    Location: "Lab 3",
-    Priority: "medium",
-    Status: "New",
-    Categorie: "Academic",
-    Date: "2025-01-08T09:00:00",
-    Attachments: [],
-    Related: []
-  },
-  {
-    id: "sample-3",
-    ReportFrom: { type: "Student", Firstname: "Sara", LastName: "Benjami" },
-    ReportTo: { type: "Staff", Firstname: "Rabat", LastName: "Staff" },
-    Title: "Login issue",
-    Description: "when I try to log into my session...",
-    Location: "Computer Lab",
-    Priority: "low",
-    Status: "New",
-    Categorie: "Technical",
-    Date: "2025-01-08T08:00:00",
-    Attachments: [],
-    Related: []
-  },
-  {
-    id: "sample-4",
-    ReportFrom: { type: "Staff", Firstname: "Mounir", LastName: "Lrnoo" },
-    ReportTo: { type: "Admin", Firstname: "Zoubir", LastName: "Admin" },
-    Title: "There is a problem with computers",
-    Description: "Wahd l'badge t'7bess t5dit bih...",
-    Location: "Room 205",
-    Priority: "high",
-    Status: "On it",
-    Categorie: "Maintenance",
-    Date: "2025-01-06T14:00:00",
-    Attachments: [],
-    Related: []
-  }
+  reportZoubir, // ✅ comments mode
+  reportStaffWithRelated, // ✅ related reports mode
+  reportRelated1,
+  reportRelated2,
 ];

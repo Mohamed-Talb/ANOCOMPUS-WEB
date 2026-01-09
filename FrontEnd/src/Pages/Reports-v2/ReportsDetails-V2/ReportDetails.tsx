@@ -100,15 +100,17 @@ function AttachmentPreview({ attachment }: { attachment: Attachment }) {
 
 export function AttachmentGrid({ attachments }: { attachments: Attachment[] }) {
   if (!attachments || attachments.length === 0) return null;
+
   const visible = attachments.slice(0, 3);
   const remaining = attachments.length - 3;
 
   return (
-    <div className="attachments-wrapper w-full md:flex-0 md:w-[200px]">
-      <div className="grid grid-cols-2 gap-2 md:gap-2.5">
+    <div className="attachments-wrapper w-full">
+      <div className="grid grid-cols-2 gap-2">
         {visible.map((attachment, index) => (
           <AttachmentPreview key={index} attachment={attachment} />
         ))}
+
         {remaining > 0 && (
           <div className="attachment-item more-button rounded-md w-full h-[90px] flex items-center justify-center bg-[#2c3e50] text-white text-2xl font-semibold cursor-pointer hover:bg-[#34495e]">
             +{remaining}
@@ -118,6 +120,7 @@ export function AttachmentGrid({ attachments }: { attachments: Attachment[] }) {
     </div>
   );
 }
+
 
 export function CommentsSection({ report }: { report: Report }) {
   return (
@@ -188,16 +191,16 @@ function RelatedCard({ report }: { report: Report }) {
       </h4>
 
       {/* Attachments + Description */}
-      <div className="flex flex-col md:flex-row md:gap-3">
+      <div className="flex flex-col @[600px]:flex-row @[600px]:gap-3">
         {/* Attachments */}
         {report.Attachments?.length > 0 && (
-          <div className="flex-shrink-0 w-full md:w-1/2">
+          <div className="flex-shrink-0 w-full @[600px]:w-1/2">
             <AttachmentGrid attachments={report.Attachments} />
           </div>
         )}
 
         {/* Description */}
-        <div className="mt-3 md:mt-0 w-full md:w-1/2">
+        <div className="mt-3 @[600px]:mt-0 w-full @[600px]:w-1/2">
           <h5 className="text-sm font-semibold text-white mb-1">Description</h5>
           <p className="text-sm text-[#98989d] leading-6">
             {report.Description}
@@ -210,6 +213,7 @@ function RelatedCard({ report }: { report: Report }) {
     </div>
   );
 }
+
 
 export function RelatedSession({ reports }: { reports: Report[] }) {
   if (!reports?.length) {
@@ -275,9 +279,10 @@ function Footer({ report }: { report: Report }) {
 }
 
 
+// ✅ MainReport updated with container queries
 export function MainReport({ report }: { report: Report }) {
   return (
-    <div className="report-card w-full max-w-[900px] mx-auto mb-6 bg-[#1c1c1e] rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.3)] p-6 md:p-8 transition-shadow hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+    <div className="report-card w-full max-w-[900px] mx-auto mb-6 bg-[#1c1c1e] rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.3)] p-6 @[600px]:p-8 transition-shadow hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
       {/* Header */}
       <div className="card-header flex items-start justify-between mb-4">
         <UserHeader
@@ -291,14 +296,14 @@ export function MainReport({ report }: { report: Report }) {
       </div>
 
       {/* Title */}
-      <h4 className="report-title text-[20px] md:text-[22px] font-semibold text-white mb-4">
+      <h4 className="report-title text-[20px] @[600px]:text-[22px] font-semibold text-white mb-4">
         {report.Title || "Untitled Report"}
       </h4>
 
       {/* Content */}
-      <div className="card-content flex flex-col md:flex-row gap-4">
+      <div className="card-content flex flex-col @[600px]:flex-row gap-4">
         {report.Attachments?.length > 0 && (
-          <div className="attachments-wrapper md:flex-0 md:w-[200px]">
+          <div className="attachments-wrapper @[600px]:flex-0 @[600px]:w-[200px]">
             <AttachmentGrid attachments={report.Attachments} />
           </div>
         )}
@@ -308,7 +313,7 @@ export function MainReport({ report }: { report: Report }) {
             Description
           </h5>
           <p className="description-text text-sm text-[#98989d] leading-6 mb-2">
-              {report.Description}
+            {report.Description}
           </p>
           <Location location={report.Location} />
         </div>
@@ -323,7 +328,198 @@ export function MainReport({ report }: { report: Report }) {
   );
 }
 
-// import { report3 } from "../IuationData";
+
+
+export function ReportDetailsContent({ report }: { report: Report }) {
+  return (
+    <>
+      <MainReport report={report} />
+
+      {report.ReportTo.type === "zoubir" && (
+        <CommentsSection report={report} />
+      )}
+
+      {report.ReportTo.type === "staff" && (
+        <RelatedSession reports={report.Related ?? []} />
+      )}
+    </>
+  );
+}
+
+
+
+
+// export function ReportDetailsPage({
+//   report,
+//   onBack,
+// }: {
+//   report: Report;
+//   onBack?: () => void;
+// }) {
+//   return (
+//     <div className="w-full p-6 bg-[#0f0f10] min-h-screen">
+//       {onBack && (
+//         <button onClick={onBack} className="mb-4 text-sm text-white">
+//           ← Back
+//         </button>
+//       )}
+
+//       <MainReport report={report} />
+
+//       {report.ReportTo.type === "zoubir" && (
+//         <CommentsSection report={report} />
+//       )}
+
+//       {report.ReportTo.type === "staff" && (
+//         <RelatedSession reports={report.Related ?? []} />
+//       )}
+//     </div>
+//   );
+// }
+
+
+import { X } from "lucide-react";
+// import type { Report } from "./types";
+
+export default function ReportDetailsPage({
+  report,
+  onBack,
+}: {
+  report: Report;
+  onBack?: () => void;
+}) {
+  return (
+    <div className="h-full flex flex-col bg-[#0f0f10]">
+
+      {/* ✅ HEADER */}
+      <div className="sticky top-0 z-30 bg-[#0f0f10] border-b border-[#2c2c2e] px-6 py-4 flex items-center justify-between">
+        <div>
+          <h2 className="text-white font-bold text-xl leading-6">
+            {report.Title || "Untitled Report"}
+          </h2>
+
+          <div className="flex items-center gap-2 mt-2">
+            <span className="text-xs px-2 py-1 rounded-md bg-green-700/30 text-green-400">
+              {report.Status}
+            </span>
+            <span className="text-xs text-[#98989d]">{report.Date}</span>
+          </div>
+        </div>
+
+        {/* ✅ close/back button (only if overlay/mobile) */}
+        {onBack && (
+          <button
+            onClick={onBack}
+            className="text-[#98989d] hover:text-white"
+          >
+            <X />
+          </button>
+        )}
+      </div>
+
+      {/* ✅ BODY (scrollable only here) */}
+      <div className="flex-1 overflow-y-auto no-scrollbar px-6 py-6 space-y-6">
+        <ReportDetailsContent report={report} />
+      </div>
+
+      {/* ✅ FOOTER (discord input)
+      <div className="border-t border-[#2c2c2e] px-6 py-4 bg-[#0f0f10]">
+        <div className="flex gap-3">
+          <input
+            placeholder={`Message about "${report.Title}"`}
+            className="flex-1 px-4 py-2 rounded-md bg-[#2c2c2e] border border-[#38383a] text-[#e5e5e7] text-sm placeholder:text-[#636366] focus:outline-none focus:border-[#0a84ff]"
+          />
+          <button className="px-6 py-2 bg-[#0a84ff] hover:bg-[#0070f3] rounded-md text-sm font-medium text-white">
+            Send
+          </button>
+        </div>
+      </div> */}
+
+    </div>
+  );
+}
+
+
+// export function MainReport({ report }: { report: Report }) {
+//   return (
+//     <div className="report-card w-full max-w-[900px] mx-auto mb-6 bg-[#1c1c1e] rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.3)] p-6 md:p-8 transition-shadow hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+//       {/* Header */}
+//       <div className="card-header flex items-start justify-between mb-4">
+//         <UserHeader
+//           firstname={report.ReportFrom.Firstname}
+//           lastname={report.ReportFrom.LastName}
+//           date={report.Date}
+//         />
+//         <button className="menu-button p-2 rounded-md text-[#98989d] hover:text-white hover:bg-[#2c2c2e]">
+//           <IconDots />
+//         </button>
+//       </div>
+
+//       {/* Title */}
+//       <h4 className="report-title text-[20px] md:text-[22px] font-semibold text-white mb-4">
+//         {report.Title || "Untitled Report"}
+//       </h4>
+
+//       {/* Content */}
+//       <div className="card-content flex flex-col md:flex-row gap-4">
+//         {report.Attachments?.length > 0 && (
+//           <div className="attachments-wrapper md:flex-0 md:w-[200px]">
+//             <AttachmentGrid attachments={report.Attachments} />
+//           </div>
+//         )}
+
+//         <div className="description-section flex-1 min-w-0 mt-2">
+//           <h5 className="description-label text-sm font-semibold text-white mb-2">
+//             Description
+//           </h5>
+//           <p className="description-text text-sm text-[#98989d] leading-6 mb-2">
+//               {report.Description}
+//           </p>
+//           <Location location={report.Location} />
+//         </div>
+//       </div>
+
+//       {/* Divider */}
+//       <hr className="divider border-t border-[#38383a] my-5" />
+
+//       {/* Footer */}
+//       <Footer report={report} />
+//     </div>
+//   );
+// }
+
+
+
+
+
+// export default function ReportDetailsPage({
+//   report,
+//   onBack,
+// }: {
+//   report: Report;
+//   onBack?: () => void;
+// }) {
+//   return (
+//     <div className="max-w-[1200px] mx-auto p-6 bg-[#0f0f10] min-h-screen">
+//       {onBack && (
+//         <button onClick={onBack} className="mb-4 text-sm text-white">
+//           ← Back
+//         </button>
+//       )}
+
+//       <MainReport report={report} />
+
+//       {report.ReportTo.type === "zoubir" && (
+//         <CommentsSection report={report} />
+//       )}
+
+//       {report.ReportTo.type === "staff" && (
+//         <RelatedSession reports={report.Related ?? []} />
+//       )}
+//     </div>
+//   );
+// }
+
 // export default function ReportDetailsPage() {
 //   const report: Report = report3;
 //   const navigate = useNavigate();
@@ -345,26 +541,3 @@ export function MainReport({ report }: { report: Report }) {
 //     </div>
 //   );
 // }
-
-
-import { useParams} from 'react-router-dom';
-import { sampleReports } from '../IluationData';
-
-export default function ReportDetailsPage() 
-{
-  const { id } = useParams();
-  const navigate = useNavigate();
-
-  const report = sampleReports.find(r => r.id === id);
-  if (!report) return <div className="text-white p-4">Report not found</div>;
-
-  return (
-    <div className="max-w-[1200px] mx-auto p-6 bg-[#0f0f10] min-h-screen">
-      <button onClick={() => navigate(-1)} className="mb-4 text-sm text-white">← Back</button>
-
-      <MainReport report={report} />
-      {report.ReportTo.type === 'zoubir' && <CommentsSection report={report} />}
-      {report.ReportTo.type === 'staff' && <RelatedSession reports={report.Related ?? []} />}
-    </div>
-  );
-}
